@@ -1,19 +1,30 @@
-export type Author = {
-  id: number;
-  firstName: string;
-  lastName: string;
-}
+// export type Author = {
+//   id: number;
+//   firstName: string;
+//   lastName: string;
+// }
 
-export type Post = {
+export type User = {
   id: number;
-  title: string;
-  votes: number;
-}
+  name: string;
+  email: string;
+  password: string;
+};
 
 export type Query = {
-  posts: Post[];
-}
+  users: User[];
+};
 
-export type Mutation = {
-  upvotePost: Post;
-}
+// export type Post = {
+//   id: number;
+//   title: string;
+//   votes: number;
+// }
+
+// export type Query = {
+//   posts: Post[];
+// }
+
+// export type Mutation = {
+//   upvotePost: Post;
+// }

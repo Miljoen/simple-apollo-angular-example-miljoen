@@ -5,7 +5,7 @@ import { Apollo } from "apollo-angular";
 import { HttpLink } from "apollo-angular/http";
 import { InMemoryCache } from "@apollo/client/core";
 
-const uri = "https://graphql-voter-app.herokuapp.com/";
+const uri = "https://1d1f27a3b446.ngrok.io/graphql/";
 
 @NgModule({
   exports: [HttpClientModule]

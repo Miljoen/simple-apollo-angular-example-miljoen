@@ -3,7 +3,7 @@ import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Post, Query } from './types';
+import { User, Query } from './types';
 
 @Component({
   selector: 'app-list',
@@ -12,33 +12,28 @@ import { Post, Query } from './types';
       <li *ngFor="let post of (posts | async)">
         {{ post.title }} by {{ post.author.firstName }}
         {{ post.author.lastName }} ({{ post.votes }} votes)
-        <app-upvoter [postId]="post.id"></app-upvoter>test
       </li>
     </ul>
   `
 })
 export class ListComponent implements OnInit {
-  posts: Observable<Post[]>;
+  users: Observable<User[]>;
   constructor(private apollo: Apollo) {}
 
   ngOnInit() {
-    this.posts = this.apollo
+    this.users = this.apollo
       .watchQuery<Query>({
         query: gql`
-          query allPosts {
-            posts {
-              id
-              title
-              votes
-              author {
-                id
-                firstName
-                lastName
-              }
+          query users {
+            users {
+              name
             }
           }
         `
       })
-      .valueChanges.pipe(map(result => result.data.posts));
+      .valueChanges.pipe(map(result => result.data.users));
+    this.users.subscribe(res => console.log(res[0]));
   }
 }
+
+// <app-upvoter [postId]="post.id"></app-upvoter>test
