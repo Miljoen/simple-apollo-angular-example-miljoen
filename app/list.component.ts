@@ -12,7 +12,7 @@ import { Post, Query } from './types';
       <li *ngFor="let post of (posts | async)">
         {{ post.title }} by {{ post.author.firstName }}
         {{ post.author.lastName }} ({{ post.votes }} votes)
-        <app-upvoter [postId]="post.id"></app-upvoter>
+        <app-upvoter [postId]="post.id"></app-upvoter>test
       </li>
     </ul>
   `
