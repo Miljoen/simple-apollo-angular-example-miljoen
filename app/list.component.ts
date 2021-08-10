@@ -8,10 +8,12 @@ import { User, Query } from './types';
 @Component({
   selector: 'app-list',
   template: `
+    <h3>Users</h3>
     <ul>
-      <li *ngFor="let post of (posts | async)">
-        {{ post.title }} by {{ post.author.firstName }}
-        {{ post.author.lastName }} ({{ post.votes }} votes)
+      <li *ngFor="let user of (users | async)">
+        ID: {{ user.id }}
+        Name: {{ user.name }}
+        Email: {{ user.email }}
       </li>
     </ul>
   `
@@ -26,7 +28,9 @@ export class ListComponent implements OnInit {
         query: gql`
           query users {
             users {
+              id
               name
+              email
             }
           }
         `
