@@ -39,5 +39,3 @@ export class ListComponent implements OnInit {
     this.users.subscribe(res => console.log(res[0]));
   }
 }
-
-// <app-upvoter [postId]="post.id"></app-upvoter>test
